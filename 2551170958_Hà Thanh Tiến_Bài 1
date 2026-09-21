@@ -1,1 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Bốn mùa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+    <div class="khung">
+        <h1>BỐN MÙA</h1>
+        <p class="kho1">
+            Xuân về hoa nở khắp trời<br>
+            Hạ sang nắng cháy rạng ngời phố quen<br>
+            Thu về lá rụng bên thềm
+        </p>
+
+        <!-- Đường kẻ ngang -->
+        <hr>
+        <p class="kho2">
+            Đông sang gió lạnh bên em đợi chờ<br>
+            Bốn mùa là bốn giấc mơ<br>
+            Thời gian đi mãi ta chờ đợi ai
+        </p>
+
+        <hr>
+        <p class="kho3">
+            Một năm rồi lại một năm<br>
+            Vẫn còn câu hát thì thầm quê hương<br>
+            Chờ xuân nắng mới soi đường
+        </p>
+    </div>
+</body>
+</html>
+.khung {
+    background-color: #FFFDE7;
+    border: 1px solid #9E9E9E;
+    width: 90%;
+    margin: auto;
+    padding: 30px;
+}
+h1 {
+    color: #D40000;
+    background-color: #FFD9E6;
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+}
+.kho1 {
+    color: #0033CC;
+    text-align: center;
+    font-style: italic;
+}
+.kho2 {
+    color: #D40000;
+    text-align: center;
+    font-style: italic;
+}
+.kho3 {
+    color: #0033CC;
+    text-align: center;
+    font-style: italic;
+}
+hr {
+    width: 50%;
+}

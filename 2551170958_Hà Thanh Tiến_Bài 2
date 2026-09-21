@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hành trình Trung Hoa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>“Bất đáo Trường Thành phi hảo hán”...</h1>
+
+        <img src="Anh/Bai02/greatwall.jpg" alt="Vạn Lý Trường Thành">
+
+        <p>
+            Công ty du lịch Hoàn Mỹ giới thiệu hành trình khám phá Trung Hoa:
+            chinh phục Vạn Lý Trường Thành, ghé Thập Tam Lăng, tham quan Cung
+            Điện Mùa Hè – nơi Từ Hy Thái Hậu cho “đào hồ, đắp núi, xây chùa”.
+        </p>
+
+         <p>
+            Du khách còn được dạo quảng trường Thiên An Môn, chiêm ngưỡng Cố
+            Cung, thưởng thức vịt quay Bắc Kinh. Tiếp đó là Thượng Hải với vườn Dự
+            Viên và khu lầu Vạn Quốc bên bến sông Hoàng Phố.
+        </p>
+
+        <p>
+            Hành trình khép lại ở Hàng Châu – nơi có sự tích “cầu gãy mà không gãy”
+            gắn với chuyện Lương Sơn Bá – Chúc Anh Đài, cùng thiên đường mua sắm
+            ngọc trai quý hiếm.
+        </p>
+
+        <div class="clear"></div>
+
+    </div>
+
+</body>
+</html>>
+body {
+   margin: 0; 
+    padding: 40px 22px; 
+    background: #eeeeee;
+    color: white; 
+    font-family: Arial, sans-serif;
+}
+
+.container {
+      width: 100%;
+    min-height: 587px;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: 30px 45px 35px;
+
+    background: linear-gradient(to bottom, #C9A227, #A8861B);
+
+    box-shadow: 0 10px 20px #888888;
+}
+
+h1 {
+    margin: 0 0 25px 0;
+    text-align: center;
+    color: #FFFFFF;
+    font-family: Arial, sans-serif;
+    font-size: 38px;
+    font-weight: bold;
+    text-shadow: 3px 3px 4px #555555;
+
+    /* Không cho trình duyệt tách/giãn chữ */
+    white-space: nowrap;
+    letter-spacing: 0;
+    word-spacing: 0;
+}
+
+img {
+    float: right;
+    width: 255px;
+    height: auto;
+    margin-left: 25px;
+    margin-bottom: 15px;
+
+    border: 3px solid rgba(255, 255, 255, 0.8);
+    border-radius: 4px;
+}
+
+p {
+    color: #FFFFFF;
+    font-size: 18px;
+    line-height: 1.8;
+    text-align: justify;
+    margin: 0 0 22px 0;
+}
+
+.clear {
+    clear: both;
+}

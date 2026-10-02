@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Các món ngon Hà Nội</title>
+    <style>
+        body {
+            background-color: #FDF8E9;
+            font-family: "Times New Roman", serif;
+            padding: 20px;
+        }
+
+        h1 {
+            color: #E65100;
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th {
+            background-color: #E65100;
+            color: white;
+            padding: 10px;
+            border-bottom: 2px solid #E0D6C2;
+        }
+
+        td {
+            padding: 10px;
+            border-bottom: 2px solid #E0D6C2;
+        }
+
+        tr:nth-child(even) {
+            background-color: #FDF8E9;
+        }
+
+        tr:nth-child(odd) {
+            background-color: white;
+        }
+
+        .stt {
+            width: 15%;
+            text-align: center;
+        }
+
+        .mon-an {
+            width: 85%;
+        }
+
+        .cot-anh {
+            width: 30%;
+            text-align: center;
+        }
+
+        .cot-bang {
+            width: 70%;
+        }
+
+        img {
+            width: 230px;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Các món ngon Hà Nội</h1>
+
+    <table>
+        <tr>
+            <td class="cot-anh">
+                <img src="bat-ha-noi.png" alt="Minh họa món ăn Hà Nội">
+            </td>
+            <td class="cot-bang">
+                <table>
+                    <tr>
+                        <th class="stt">STT</th>
+                        <th class="mon-an">Tên món ăn</th>
+                    </tr>
+                    <tr><td class="stt">1</td><td>Bánh cuốn Thanh Trì</td></tr>
+                    <tr><td class="stt">2</td><td>Xôi Hà Nội</td></tr>
+                    <tr><td class="stt">3</td><td>Chả cá Lã Vọng</td></tr>
+                    <tr><td class="stt">4</td><td>Cháo Cóc</td></tr>
+                    <tr><td class="stt">5</td><td>Bánh Gai Ninh Giang</td></tr>
+                    <tr><td class="stt">6</td><td>Bún Thang Hà Nội</td></tr>
+                    <tr><td class="stt">7</td><td>Canh Lăng</td></tr>
+                    <tr><td class="stt">8</td><td>Vịt quay Lạng Sơn</td></tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

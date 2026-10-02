@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Hồ sơ cá nhân - Nguyễn Văn An</title>
+    <style>
+        body {
+            background-color: #EDF2F7;
+            font-family: Arial, sans-serif;
+            padding: 30px;
+        }
+
+        .ho-so {
+            width: 700px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px #00000022;
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            overflow: hidden;
+        }
+
+        .cot-trai {
+            background: linear-gradient(#1565C0, #0d3f7a);
+            color: white;
+            padding: 25px 20px;
+        }
+
+        .anh-dai-dien {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: white;
+            color: #1565C0;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            line-height: 100px;
+            margin: 0 auto 10px;
+        }
+
+        .cot-trai h1 {
+            font-size: 20px;
+            text-align: center;
+            margin: 8px 0 2px;
+        }
+
+        .chuc-danh {
+            text-align: center;
+            font-size: 14px;
+            margin: 0 0 18px;
+        }
+
+        .thong-tin {
+            font-size: 13px;
+            line-height: 2;
+        }
+
+        .cot-phai {
+            padding: 22px;
+        }
+
+        .cot-phai h2 {
+            color: #1565C0;
+            font-size: 17px;
+            border-bottom: 2px solid #DFE8F2;
+            padding-bottom: 5px;
+            margin: 0 0 10px;
+        }
+
+        .cot-phai p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin: 0 0 12px;
+        }
+
+        .ky-nang {
+            margin-bottom: 14px;
+        }
+
+        .ky-nang span {
+            display: inline-block;
+            background-color: #E3F0FF;
+            color: #0d3f7a;
+            border-radius: 20px;
+            padding: 6px 12px;
+            font-size: 12px;
+            margin: 0 4px 6px 0;
+        }
+
+        a {
+            color: #1565C0;
+        }
+    </style>
+</head>
+<body>
+    <div class="ho-so">
+        <div class="cot-trai">
+            <div class="anh-dai-dien">NA</div>
+            <h1>Nguyễn Văn An</h1>
+            <p class="chuc-danh">Sinh viên CNTT · K67</p>
+
+            <div class="thong-tin">
+                ✉ an.nv@thu.edu.vn<br>
+                ☎ 0987 654 321<br>
+                ♧ Hà Nội<br>
+                ⚑ github.com/annv
+            </div>
+        </div>
+
+        <div class="cot-phai">
+            <h2>Giới thiệu</h2>
+            <p>Sinh viên năm 3 ngành Công nghệ thông tin, yêu thích lập trình web và thiết kế giao diện. Đang tìm cơ hội thực tập vị trí Front-end Developer.</p>
+
+            <h2>Kỹ năng</h2>
+            <div class="ky-nang">
+                <span>HTML5</span>
+                <span>CSS3</span>
+                <span>JavaScript</span>
+                <span>Bootstrap</span>
+                <span>Git</span>
+            </div>
+
+            <h2>Học vấn</h2>
+            <p>2023 – nay: Trường Đại học Thủy lợi (TLU), ngành Công nghệ thông tin.</p>
+
+            <h2>Liên kết</h2>
+            <p><a href="#">Portfolio</a> · <a href="#">Facebook</a> · <a href="#">LinkedIn</a></p>
+        </div>
+    </div>
+</body>
+</html>

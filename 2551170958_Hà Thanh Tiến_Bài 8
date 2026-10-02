@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Ai? Cái gì? Ở đâu? ...</title>
+    <style>
+        body {
+            background-color: #E8EEF2;
+            font-family: Arial, sans-serif;
+            color: #333333;
+        }
+
+        .trang {
+            width: 900px;
+            margin: 20px auto;
+            background-color: #F7FAFC;
+            border: 1px solid #D5DEE5;
+            padding: 12px;
+        }
+
+        h1 {
+            color: #1668C1;
+            font-size: 24px;
+            border-bottom: 3px solid #1668C1;
+            padding-bottom: 8px;
+            margin: 0 0 12px;
+        }
+
+        .cot-menu {
+            width: 18%;
+            vertical-align: top;
+            border-right: 1px solid #D5DEE5;
+            padding: 8px;
+        }
+
+        .cot-noi-dung {
+            width: 82%;
+            vertical-align: top;
+            padding: 8px 12px;
+        }
+
+        .menu a {
+            display: block;
+            color: #1668C1;
+            text-decoration: none;
+            font-size: 14px;
+            margin: 8px 0;
+        }
+
+        .menu a:hover {
+            text-decoration: underline;
+        }
+
+        .nhan-menu {
+            color: #666666;
+            font-size: 11px;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            background-color: #1668C1;
+            color: white;
+            font-size: 16px;
+            padding: 6px 10px;
+            border-radius: 3px;
+            margin: 8px 0;
+        }
+
+        .bai-viet {
+            min-height: 72px;
+            border-bottom: 1px dashed #D5DEE5;
+            padding: 8px 0;
+            font-size: 13px;
+        }
+
+        .bai-viet a {
+            color: #1668C1;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        .bai-viet a:hover {
+            text-decoration: underline;
+        }
+
+        .bai-viet img {
+            float: right;
+            width: 90px;
+            height: 58px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin: 0 0 6px 10px;
+        }
+
+        .bai-viet p {
+            margin: 5px 0;
+            line-height: 1.4;
+        }
+
+        .ve-dau {
+            text-align: right;
+            font-size: 12px;
+            margin-top: 8px;
+        }
+
+        .ve-dau a, footer a {
+            color: #1668C1;
+        }
+
+        footer {
+            color: #777777;
+            font-size: 11px;
+            text-align: center;
+            padding: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="trang" id="dau-trang">
+        <h1>Ai? Cái gì? Ở đâu? ...</h1>
+
+        <table>
+            <tr>
+                <td class="cot-menu">
+                    <div class="nhan-menu">CHUYÊN MỤC</div>
+                    <div class="menu">
+                        <a href="#tinh-yeu">Tình yêu và gia đình</a>
+                        <a href="#suc-khoe">Sức khỏe</a>
+                        <a href="#am-thuc">Ẩm thực</a>
+                        <a href="#am-nhac">Âm nhạc</a>
+                    </div>
+                </td>
+                <td class="cot-noi-dung">
+                    <h2 id="tinh-yeu">Tình yêu và gia đình</h2>
+                    <div class="bai-viet">
+                        <img src="trau-cau.png" alt="Trầu cau">
+                        <a href="#tinh-yeu">Trầu cau</a>
+                        <p>Tình yêu là gì? Là yêu một người mỗi ngày trong một năm. Mỗi năm trong một đời người...</p>
+                    </div>
+                    <div class="bai-viet">
+                        <img src="com-gia-dinh.png" alt="Bữa cơm gia đình">
+                        <a href="#tinh-yeu">Xây dựng hạnh phúc gia đình qua những bữa cơm hàng ngày</a>
+                        <p>Nói đến hạnh phúc gia đình thường là những bữa ăn không thể đẹp hơn...</p>
+                    </div>
+
+                    <h2 id="suc-khoe">Sức khỏe</h2>
+                    <div class="bai-viet">
+                        <img src="rau-cu.png" alt="Rau củ tươi">
+                        <a href="#suc-khoe">10 lời khuyên trong dinh dưỡng</a>
+                        <p>Cơ thể chúng ta cần nhiều chất dinh dưỡng từ nhiều nguồn lương thực khác nhau...</p>
+                    </div>
+                    <div class="bai-viet">
+                        <img src="bo-thuoc.png" alt="Bỏ thuốc lá">
+                        <a href="#suc-khoe">Làm sao để bỏ thuốc lá?</a>
+                        <p>Sức khỏe của chính bạn. Không hút thuốc lá sẽ giúp giảm đáng kể rủi ro mắc các loại bệnh ung thư...</p>
+                    </div><h2 id="am-thuc">Ẩm thực</h2>
+                    <div class="bai-viet">
+                        <img src="mon-an.png" alt="Món ăn dân dã">
+                        <a href="#am-thuc">Các món ăn dân dã</a>
+                        <p>Các món ăn nổi tiếng: Chuyên mục dạy nấu ăn - Món ngon Hà Nội - Các món ăn dân dã ở miền Tây.</p>
+                    </div>
+
+                    <h2 id="am-nhac">Âm nhạc</h2>
+                    <div class="bai-viet">
+                        <img src="nhac-thieu-nhi.png" alt="Bản nhạc thiếu nhi">
+                        <a href="#am-nhac">Nhạc thiếu nhi</a>
+                        <p>Nắng sân trường - Mẹ yêu không nào - Ba bà đi bán lợn con.</p>
+                    </div>
+                    <div class="bai-viet">
+                        <img src="dan-ca.png" alt="Biểu tượng dân ca">
+                        <a href="#am-nhac">Dân ca</a>
+                        <p>Beo dạt mây trôi - Mười thương - Lý cây bông.</p>
+                    </div>
+                    <div class="ve-dau"><a href="#dau-trang">Về đầu trang ↑</a></div>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+

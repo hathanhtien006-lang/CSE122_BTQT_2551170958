@@ -158,7 +158,5 @@
             <button class="nut-nhap-lai" type="reset">Nhập lại</button>
         </form>
     </div>
-
-    <footer>© CSE.TLU - ChimCanhCut · 0868600513</footer>
 </body>
 </html>

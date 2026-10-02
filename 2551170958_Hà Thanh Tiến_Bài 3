@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Đà Nẵng - Thành phố đáng sống</title>
+    <style>
+        body {
+            border: 1px solid black;
+            padding: 12px;
+            font-family: "Times New Roman", serif;
+        }
+
+        h1 {
+            color: #1565C0;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 24px;
+            margin: 8px 0 12px;
+        }
+
+        h1 span {
+            display: block;
+            font-size: 18px;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        p {
+            font-size: 16px;
+            line-height: 1.7;
+            text-align: justify;
+            margin: 8px 0 12px;
+        }
+
+        p::first-letter {
+            color: #C62828;
+            font-size: 40px;
+            font-weight: bold;
+            float: left;
+            line-height: 0.8;
+            padding-right: 5px;
+        }
+
+        figcaption {
+            background-color: #1565C0;
+            color: white;
+            text-align: right;
+            padding: 4px 8px;
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Đà Nẵng<span>Thành phố đáng sống</span></h1>
+
+    <img src="da-nang-dem.png" alt="Thành phố Đà Nẵng về đêm bên sông Hàn">
+
+    <p>Đà Nẵng nằm bên bờ sông Hàn, nổi bật với những cây cầu độc đáo như Cầu Rồng phun lửa và nước, Cầu Sông Hàn quay giữa đêm. Thành phố còn có <strong>Bà Na Hills</strong> trên núi cao và <strong>bán đảo Sơn Trà</strong> xanh mát.</p>
+
+    <figcaption>Cầu Rồng – biểu tượng sông Hàn</figcaption>
+
+    <p>Mỗi tối cuối tuần, người dân và du khách lại tụ tập hai bên sông để xem Cầu Rồng phun lửa. Ẩm thực miền Trung với mì Quảng, bánh xèo, hải sản tươi ngon càng làm nên sức hút của thành phố đáng sống nhất Việt Nam.</p>
+</body>
+</html>

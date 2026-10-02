@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Form liên hệ</title>
+    <style>
+        body {
+            background-color: #e2e8f0;
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .khung {
+            width: 640px;
+            margin: 10px auto;
+            background-color: white;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px #00000022;
+            overflow: hidden;
+        }
+
+        .dau-form {
+            background-color: #0f766e;
+            color: white;
+            padding: 18px 26px;
+        }
+
+        .dau-form h1 {
+            font-size: 23px;
+            margin: 0 0 4px;
+        }
+
+        .dau-form p {
+            margin: 0;
+            font-size: 14px;
+        }
+
+        form {
+            padding: 22px 26px;
+        }
+
+        .hai-cot {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        .truong {
+            margin-bottom: 14px;
+        }
+
+        label {
+            display: block;
+            color: #334155;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 6px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            padding: 10px;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+        }
+
+        textarea {
+            height: 86px;
+            resize: vertical;
+        }
+
+        .dong-y {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #334155;
+            font-size: 14px;
+            margin: 16px 0;
+        }
+
+        .dong-y input {
+            width: auto;
+        }
+
+        button {
+            border: 0;
+            border-radius: 6px;
+            padding: 11px 22px;
+            font-size: 14px;
+            cursor: pointer;
+            margin-right: 8px;
+        }
+
+        .nut-gui {
+            background-color: #0f766e;
+            color: white;
+        }
+
+        .nut-nhap-lai {
+            background-color: #e2e8f0;
+            color: #334155;
+        }
+
+        footer {
+            text-align: center;
+            color: #777777;
+            font-size: 12px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="khung">
+        <div class="dau-form">
+            <h1>Liên hệ với chúng tôi</h1>
+            <p>Vui lòng điền thông tin bên dưới, chúng tôi sẽ phản hồi trong 24 giờ.</p>
+        </div>
+
+        <form>
+            <div class="hai-cot">
+                <div class="truong">
+                    <label for="ho-ten">Họ và tên</label>
+                    <input type="text" id="ho-ten" name="ho-ten" value="Nguyễn Văn An">
+                </div>
+                <div class="truong">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" value="an.nv@tlu.edu.vn">
+                </div>
+                <div class="truong">
+                    <label for="dien-thoai">Số điện thoại</label>
+                    <input type="tel" id="dien-thoai" name="dien-thoai" value="0987 654 321">
+                </div>
+                <div class="truong">
+                    <label for="chu-de">Chủ đề</label>
+                    <select id="chu-de" name="chu-de">
+                        <option>Hỏi về khóa học</option>
+                        <option>Góp ý</option>
+                        <option>Hỗ trợ kỹ thuật</option>
+                        <option>Khác</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="truong">
+                <label for="noi-dung">Nội dung</label>
+                <textarea id="noi-dung" name="noi-dung">Em muốn hỏi về lịch nộp bài tập môn Lập trình Web ạ.</textarea>
+            </div>
+
+            <label class="dong-y">
+                <input type="checkbox" name="dong-y" checked>
+                Tôi đồng ý nhận email phản hồi.
+            </label>
+
+            <button class="nut-gui" type="submit">Gửi liên hệ</button>
+            <button class="nut-nhap-lai" type="reset">Nhập lại</button>
+        </form>
+    </div>
+
+    <footer>© CSE.TLU - ChimCanhCut · 0868600513</footer>
+</body>
+</html>

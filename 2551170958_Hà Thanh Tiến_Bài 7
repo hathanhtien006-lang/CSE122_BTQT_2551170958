@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Khuyến mãi dầu gội Double Rich</title>
+    <style>
+        body {
+            background-color: #ECEFF1;
+            font-family: Arial, sans-serif;
+            color: #333333;
+            padding: 20px;
+        }
+
+        .khung {
+            background-color: white;
+            padding: 24px;
+            min-height: 560px;
+        }
+
+        h1 {
+            background-color: #C8102E;
+            color: white;
+            text-align: center;
+            font-size: 23px;
+            padding: 14px;
+            margin: 0;
+        }
+
+        h2 {
+            background-color: #FBE3E8;
+            color: #C8102E;
+            text-align: center;
+            font-size: 18px;
+            padding: 6px;
+            margin: 0 0 22px;
+        }
+
+        .tren {
+            min-height: 270px;
+        }
+
+        .anh-san-pham {
+            float: right;
+            width: 185px;
+            margin: 0 0 12px 20px;
+        }
+
+        .cot-phai {
+            margin-left: 48%;
+            border-left: 1px solid #DDDDDD;
+            padding-left: 22px;
+            min-height: 270px;
+        }
+
+        h3 {
+            color: #C8102E;
+            font-size: 16px;
+            margin: 0 0 10px;
+        }
+
+        ul {
+            padding-left: 20px;
+            line-height: 1.7;
+        }
+
+        .cach-thuc {
+            width: 48%;
+            line-height: 1.7;
+        }
+
+        .cach-thuc ul {
+            padding-left: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="khung">
+        <h1>Công nghệ dầu gội dưỡng tóc mới</h1>
+        <h2>TỎA SÁNG CÙNG DOUBLE RICH</h2>
+
+        <div class="tren">
+            <img class="anh-san-pham" src="double-rich.png" alt="Hai chai dầu gội Double Rich">
+
+            <div class="cot-phai">
+                <h3>▫ Sản phẩm khuyến mãi</h3>
+                <ul>
+                    <li>Dầu gội Double Rich mới 200ml, 400ml có tem khuyến mãi.</li>
+                </ul>
+
+                <h3>▫ Đối tượng tham gia</h3>
+                <ul>
+                    <li>Áp dụng cho tất cả người tiêu dùng cuối cùng mua sản phẩm khuyến mãi.</li>
+                    <li>Không áp dụng cho nhân viên, nhà phân phối, đại lý và các cá nhân kinh doanh sản phẩm của công ty.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="cach-thuc">
+            <h3>▫ Cách thức nhận giải</h3>
+            <ul>
+                <li><strong>Giải khuyến khích:</strong> đổi quà tại cửa hàng bán lẻ toàn quốc, từ 15/06/2005 đến 17h ngày 12/08/2005.</li>
+                <li><strong>Giải đặc biệt, nhất, nhì:</strong> cắt mã vạch trên chai dầu gội, gửi kèm phiếu trúng thưởng về văn phòng công ty trước ngày 31/07/2005 (theo dấu bưu điện).</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

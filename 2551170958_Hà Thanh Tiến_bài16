@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 16 - Danh sách việc cần làm</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 28px 16px;
+            box-sizing: border-box;
+            background-color: #f3f4f6;
+            color: #111827;
+            font-family: Arial, sans-serif;
+        }
+
+        .ung-dung {
+            width: min(600px, 100%);
+            margin: 0 auto;
+            overflow: hidden;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 14px 35px #11182720;
+        }
+
+        header {
+            padding: 28px 30px;
+            background-color: #6d28d9;
+            color: #fff;
+        }
+
+        h1 {
+            margin: 0 0 8px;
+            font-size: 30px;
+        }
+
+        header p {
+            margin: 0;
+            color: #ede9fe;
+            font-size: 17px;
+            line-height: 1.5;
+        }
+
+        form {
+            display: flex;
+            gap: 12px;
+            padding: 22px 24px;
+            border-bottom: 1px solid #ede9fe;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            min-width: 0;
+            padding: 13px 14px;
+            border: 1px solid #d8d2e8;
+            border-radius: 10px;
+            font-size: 17px;
+        }
+
+        button {
+            border: 0;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .nut-them {
+            padding: 0 20px;
+            background-color: #6d28d9;
+            color: #fff;
+        }
+
+        .nut-them:hover { background-color: #5b21b6; }
+
+        ul {
+            margin: 0;
+            padding: 0 24px;
+            list-style: none;
+        }
+
+        li {
+            min-height: 64px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px dashed #ede9fe;
+        }
+
+        .danh-dau {
+            width: 22px;
+            height: 22px;
+            flex: 0 0 22px;
+            accent-color: #6d28d9;
+            cursor: pointer;
+        }
+
+        .ten-viec {
+            flex: 1;
+            overflow-wrap: anywhere;
+            font-size: 17px;
+        }
+
+        li.hoan-thanh .ten-viec {
+            color: #9ca3af;
+            text-decoration: line-through;
+        }
+
+        .nut-xoa {
+            padding: 8px 12px;
+            background-color: #fee2e2;
+            color: #b91c1c;
+        }
+
+        .nut-xoa:hover { background-color: #fecaca; }
+
+        .dem-viec {
+            margin: 0;
+            padding: 22px 24px;
+            color: #6b7280;
+            font-size: 16px;
+        }
+
+        @media (max-width: 480px) {
+            body { padding: 12px; }
+            header { padding: 22px 20px; }
+            h1 { font-size: 25px; }
+            form { padding: 16px; }
+            ul { padding: 0 16px; }
+            .dem-viec { padding: 18px 16px; }
+            .nut-xoa { padding: 7px 9px; }
+        }
+    </style>
+</head>
+<body>
+    <main class="ung-dung">
+        <header>
+            <h1>Danh sách việc cần làm</h1>
+            <p>Thêm việc mới, đánh dấu hoàn thành hoặc xoá.</p>
+        </header>
+
+        <form id="form-viec">
+            <input id="o-nhap" type="text" placeholder="Nhập việc cần làm..." autocomplete="off">
+            <button class="nut-them" type="submit">Thêm</button>
+        </form>
+
+        <ul id="danh-sach-viec" aria-live="polite">
+            <li class="hoan-thanh">
+                <input class="danh-dau" type="checkbox" checked aria-label="Đánh dấu hoàn thành">
+                <span class="ten-viec">Đọc chương HTML5 cơ bản</span>
+                <button class="nut-xoa" type="button">Xoá</button>
+            </li>
+            <li>
+                <input class="danh-dau" type="checkbox" aria-label="Đánh dấu hoàn thành">
+                <span class="ten-viec">Làm bài tập CSS Grid</span>
+                <button class="nut-xoa" type="button">Xoá</button>
+            </li>
+            <li>
+                <input class="danh-dau" type="checkbox" aria-label="Đánh dấu hoàn thành">
+                <span class="ten-viec">Quay video OBS nộp bài</span>
+                <button class="nut-xoa" type="button">Xoá</button>
+            </li>
+        </ul>
+
+        <p class="dem-viec" id="dem-viec" aria-live="polite"></p>
+    </main>
+
+    <script>
+        const formViec = document.getElementById("form-viec");
+        const oNhap = document.getElementById("o-nhap");
+        const danhSachViec = document.getElementById("danh-sach-viec");
+        const demViec = document.getElementById("dem-viec");
+
+        function capNhatSoViecConLai() {
+            const cacViec = danhSachViec.querySelectorAll("li");
+            let soViecConLai = 0;
+
+            for (let i = 0; i < cacViec.length; i++) {
+                const oDanhDau = cacViec[i].querySelector(".danh-dau");
+                if (oDanhDau.checked === false) {
+                    soViecConLai++;
+                }
+            }
+
+            if (soViecConLai === 1) {
+                demViec.textContent = "Còn 1 việc chưa hoàn thành";
+            } else {
+                demViec.textContent = "Còn " + soViecConLai + " việc chưa hoàn thành";
+            }
+        }
+
+        function themViec(tenViec) {
+            const mucViec = document.createElement("li");
+
+            const oDanhDau = document.createElement("input");
+            oDanhDau.type = "checkbox";
+            oDanhDau.className = "danh-dau";
+            oDanhDau.setAttribute("aria-label", "Đánh dấu hoàn thành");
+
+            const noiDungViec = document.createElement("span");
+            noiDungViec.className = "ten-viec";
+            noiDungViec.textContent = tenViec;
+
+            const nutXoa = document.createElement("button");
+            nutXoa.type = "button";
+            nutXoa.className = "nut-xoa";
+            nutXoa.textContent = "Xoá";
+
+            mucViec.appendChild(oDanhDau);
+            mucViec.appendChild(noiDungViec);
+            mucViec.appendChild(nutXoa);
+            danhSachViec.appendChild(mucViec);
+        }
+
+        formViec.addEventListener("submit", function (suKien) {
+            suKien.preventDefault();
+            const tenViec = oNhap.value.trim();
+
+            if (tenViec !== "") {
+                themViec(tenViec);
+                oNhap.value = "";
+                oNhap.focus();
+                capNhatSoViecConLai();
+            }
+        });
+
+        // Dùng một sự kiện cho danh sách để xử lý cả các việc được thêm sau này.
+        danhSachViec.addEventListener("change", function (suKien) {
+            if (suKien.target.classList.contains("danh-dau")) {
+                const mucViec = suKien.target.parentElement;
+                if (suKien.target.checked) {
+                    mucViec.classList.add("hoan-thanh");
+                } else {
+                    mucViec.classList.remove("hoan-thanh");
+                }
+                capNhatSoViecConLai();
+            }
+        });
+
+        danhSachViec.addEventListener("click", function (suKien) {
+            if (suKien.target.classList.contains("nut-xoa")) {
+                suKien.target.parentElement.remove();
+                capNhatSoViecConLai();
+            }
+        });
+
+        capNhatSoViecConLai();
+    </script>
+</body>
+</html>

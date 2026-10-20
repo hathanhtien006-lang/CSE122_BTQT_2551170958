@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 15 - Máy tính</title>
+    <style>
+        body {
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 16px;
+            box-sizing: border-box;
+            background-color: #111827;
+            font-family: Arial, sans-serif;
+        }
+
+        .may-tinh {
+            width: min(100%, 720px);
+            padding: 32px;
+            background-color: #111827;
+            border: 1px solid #293444;
+            border-radius: 30px;
+            box-shadow: 0 12px 35px #00000030;
+        }
+
+        .man-hinh {
+            min-height: 150px;
+            margin-bottom: 28px;
+            padding: 20px 26px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-end;
+            overflow: hidden;
+            background-color: #022c22;
+            border-radius: 22px;
+            color: #4ade80;
+        }
+
+        #phep-tinh {
+            width: 100%;
+            min-height: 30px;
+            overflow-wrap: anywhere;
+            color: #219a62;
+            font-size: 24px;
+            text-align: right;
+        }
+
+        #ket-qua {
+            width: 100%;
+            min-height: 68px;
+            overflow-wrap: anywhere;
+            font-size: 64px;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .ban-phim {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        button {
+            min-height: 88px;
+            border: 0;
+            border-radius: 17px;
+            background-color: #25313f;
+            color: #f5f7fa;
+            font-size: 32px;
+            cursor: pointer;
+        }
+
+        button:hover { filter: brightness(1.12); }
+        button:active { transform: scale(0.97); }
+        button.chuc-nang { background-color: #0d6efd; }
+        button.xoa { background-color: #dc2626; }
+        button.bang { background-color: #16a34a; }
+        button.so-khong { grid-column: span 2; }
+
+        @media (max-width: 520px) {
+            .may-tinh { padding: 18px; border-radius: 24px; }
+            .man-hinh { min-height: 125px; padding: 16px; }
+            .ban-phim { gap: 10px; }
+            button { min-height: 68px; border-radius: 13px; font-size: 26px; }
+            #ket-qua { font-size: 48px; }
+            #phep-tinh { font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+    <main class="may-tinh">
+        <section class="man-hinh" aria-live="polite">
+            <div id="phep-tinh"></div>
+            <div id="ket-qua">0</div>
+        </section>
+
+        <section class="ban-phim">
+            <button class="xoa" data-loai="xoa">C</button>
+            <button class="chuc-nang" data-loai="ngoac">( )</button>
+            <button class="chuc-nang" data-gia-tri="%">%</button>
+            <button class="chuc-nang" data-gia-tri="÷">÷</button>
+
+            <button data-gia-tri="7">7</button>
+            <button data-gia-tri="8">8</button>
+            <button data-gia-tri="9">9</button>
+            <button class="chuc-nang" data-gia-tri="×">×</button>
+
+            <button data-gia-tri="4">4</button>
+            <button data-gia-tri="5">5</button>
+            <button data-gia-tri="6">6</button>
+            <button class="chuc-nang" data-gia-tri="−">−</button>
+
+            <button data-gia-tri="1">1</button>
+            <button data-gia-tri="2">2</button>
+            <button data-gia-tri="3">3</button>
+            <button class="chuc-nang" data-gia-tri="+">+</button>
+
+            <button class="so-khong" data-gia-tri="0">0</button>
+            <button data-gia-tri=".">.</button>
+            <button class="bang" data-loai="tinh">=</button>
+        </section>
+    </main>
+
+    <script>
+        let phepTinh = "";
+        let vuaTinhXong = false;
+
+        const manHinhPhepTinh = document.getElementById("phep-tinh");
+        const manHinhKetQua = document.getElementById("ket-qua");
+        const cacNut = document.querySelectorAll(".ban-phim button");
+
+        function capNhatManHinh() {
+            manHinhPhepTinh.textContent = phepTinh;
+        }
+
+        function bamNut(giaTri, loai) {
+            if (loai === "xoa") {
+                phepTinh = "";
+                vuaTinhXong = false;
+                manHinhKetQua.textContent = "0";
+                capNhatManHinh();
+                return;
+            }
+
+            if (loai === "tinh") {
+                tinhKetQua();
+                return;
+            }
+
+            if (loai === "ngoac") {
+                if (vuaTinhXong) {
+                    phepTinh = "";
+                    vuaTinhXong = false;
+                }
+
+                const soNgoacMo = (phepTinh.match(/\(/g) || []).length;
+                const soNgoacDong = (phepTinh.match(/\)/g) || []).length;
+                const kyTuCuoi = phepTinh[phepTinh.length - 1];
+
+                if (soNgoacMo > soNgoacDong && (/[0-9)]/.test(kyTuCuoi))) {
+                    phepTinh += ")";
+                } else {
+                    phepTinh += "(";
+                }
+                capNhatManHinh();
+                return;
+            }
+
+            const laToanTu = ["+", "−", "×", "÷", "%"].includes(giaTri);
+            if (vuaTinhXong && !laToanTu) {
+                phepTinh = "";
+                manHinhKetQua.textContent = "0";
+            } else if (vuaTinhXong && laToanTu) {
+                // Dùng kết quả vừa tính làm số đầu tiên của phép tính mới.
+                phepTinh = manHinhKetQua.textContent;
+            }
+
+            vuaTinhXong = false;
+            phepTinh += giaTri;
+            capNhatManHinh();
+        }
+
+        function tinhKetQua() {
+            if (phepTinh === "") {
+                return;
+            }
+
+            // Chỉ cho phép số, dấu chấm, ngoặc và các phép tính trên bàn phím.
+            const bieuThuc = phepTinh.replace(/×/g, "*").replace(/÷/g, "/").replace(/−/g, "-");
+            if (!/^[0-9+\-*/%.()\s]+$/.test(bieuThuc)) {
+                manHinhKetQua.textContent = "Lỗi";
+                vuaTinhXong = true;
+                return;
+            }
+
+            try {
+                const ketQua = Function("return (" + bieuThuc + ")")();
+                if (!Number.isFinite(ketQua)) {
+                    manHinhKetQua.textContent = "Lỗi";
+                } else {
+                    manHinhKetQua.textContent = Number(ketQua.toFixed(10)).toString();
+                }
+                vuaTinhXong = true;
+            } catch (loi) {
+                manHinhKetQua.textContent = "Lỗi";
+                vuaTinhXong = true;
+            }
+        }
+
+        for (let i = 0; i < cacNut.length; i++) {
+            cacNut[i].addEventListener("click", function () {
+                bamNut(this.dataset.giaTri, this.dataset.loai);
+            });
+        }
+    </script>
+</body>
+</html>

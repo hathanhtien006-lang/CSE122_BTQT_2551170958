@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Thư viện ảnh Việt Nam</title>
+    <style>
+        body {
+            background-color: #0f172a;
+            color: #e2e8f0;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 24px;
+        }
+
+        h1 {
+            text-align: center;
+            margin: 4px 0 6px;
+        }
+
+        .mo-ta {
+            text-align: center;
+            color: #cbd5e1;
+            font-size: 14px;
+            margin: 0 0 22px;
+        }
+
+        .luoi-anh {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 16px;
+        }
+
+        figure {
+            background-color: #1e293b;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        figure img {
+            display: block;
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+
+        figcaption {
+            color: #cbd5e1;
+            font-size: 13px;
+            padding: 10px 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Thư viện ảnh Việt Nam</h1>
+    <p class="mo-ta">Bộ sưu tập 6 danh thắng tiêu biểu — minh họa thẻ figure / figcaption.</p>
+
+    <div class="luoi-anh">
+        <figure>
+            <img src="vinh-ha-long.png" alt="Bãi biển và hàng dừa ở Vịnh Hạ Long">
+            <figcaption>Hình 1. Vịnh Hạ Long</figcaption>
+        </figure>
+        <figure>
+            <img src="hang-son-doong.png" alt="Cảnh bên trong hang Sơn Đoòng">
+            <figcaption>Hình 2. Hang Sơn Đoòng</figcaption>
+        </figure>
+        <figure>
+            <img src="thac-ban-gioc.png" alt="Thác nước Bản Giốc giữa núi rừng">
+            <figcaption>Hình 3. Thác Bản Giốc</figcaption>
+        </figure>
+        <figure>
+            <img src="fansipan.png" alt="Núi Fansipan trên biển mây">
+            <figcaption>Hình 4. Fansipan</figcaption>
+        </figure>
+        <figure>
+            <img src="dong-bang-song-cuu-long.png" alt="Thuyền trên sông ở đồng bằng sông Cửu Long">
+            <figcaption>Hình 5. Đồng bằng sông Cửu Long</figcaption>
+        </figure>
+        <figure>
+            <img src="dong-phong-nha.png" alt="Thạch nhũ bên trong động Phong Nha">
+            <figcaption>Hình 6. Động Phong Nha</figcaption>
+        </figure>
+    </div>
+</body>
+</html

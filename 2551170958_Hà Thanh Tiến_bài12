@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 12 - Xem lịch</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background: #f4f4f4 url("Anh/Bai12/Nen.gif") repeat;
+        }
+
+        .hop-lich {
+            width: min(740px, 88%);
+            padding: 38px;
+            background-color: rgba(255, 255, 255, 0.96);
+            border-radius: 18px;
+            box-shadow: 0 12px 30px #00000020;
+            text-align: center;
+        }
+
+        .lich {
+            padding: 26px 12px;
+            border: 2px solid #ccc;
+            border-radius: 14px;
+            background-color: #fff;
+            color: #1565c0;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 30px;
+        }
+
+        #nam, #so-ngay, #thu, #thang { display: block; }
+        #nam { color: #c62828; font-size: 24px; }
+        #thang, #thu { color: #1565c0; font-size: 30px; }
+        #so-ngay { color: #c62828; font-size: 68px; font-weight: bold; }
+
+        #loi-chao {
+            margin: 24px 0;
+            color: #c62828;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: 30px;
+            font-style: italic;
+        }
+
+        form {
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            gap: 18px;
+            padding: 24px 16px;
+            border: 3px solid #1565c0;
+            border-radius: 14px;
+        }
+
+        label { display: flex; flex-direction: column; gap: 6px; font-size: 20px; }
+        input { width: 95px; padding: 8px; border: 1px solid #ccc; border-radius: 8px; font-size: 20px; text-align: center; }
+        button { padding: 10px 22px; border: 0; border-radius: 8px; background: #546e7a; color: white; font-size: 20px; cursor: pointer; }
+        button:hover { background: #37474f; }
+        #thong-bao { min-height: 22px; margin: 12px 0 0; color: #c62828; }
+
+        @media (max-width: 600px) {
+            .hop-lich { padding: 20px; }
+            form { flex-wrap: wrap; gap: 12px; }
+            input { width: 72px; }
+            button { padding: 9px 16px; }
+        }
+    </style>
+</head>
+<body>
+    <main class="hop-lich">
+        <section class="lich" aria-live="polite">
+            <span id="nam"></span>
+            <span id="thang"></span>
+            <span id="so-ngay"></span>
+            <span id="thu"></span>
+        </section>
+
+        <p id="loi-chao"></p>
+
+        <form id="form-lich">
+            <label>Ngày
+                <input id="ngay-nhap" type="number" min="1" max="31" value="24" required>
+            </label>
+            <label>Tháng
+                <input id="thang-nhap" type="number" min="1" max="12" value="12" required>
+            </label>
+            <label>Năm
+                <input id="nam-nhap" type="number" min="1" value="2026" required>
+            </label>
+            <button type="submit">In lịch</button>
+        </form>
+        <p id="thong-bao" aria-live="polite"></p>
+    </main>
+
+    <script>
+        const formLich = document.getElementById("form-lich");
+
+        function hienThiLich(ngay, thang, nam) {
+            const ngayDuocChon = new Date(nam, thang - 1, ngay);
+
+            // Kiểm tra ngày có thật, ví dụ 31/2 không phải ngày hợp lệ.
+            if (ngayDuocChon.getDate() !== ngay ||
+                ngayDuocChon.getMonth() !== thang - 1 ||
+                ngayDuocChon.getFullYear() !== nam) {
+                document.getElementById("thong-bao").textContent = "Ngày không hợp lệ. Vui lòng kiểm tra lại.";
+                return;
+            }
+
+            const tenThang = ["Tháng 1", "Tháng 2", "Tháng 3", "Tháng 4", "Tháng 5", "Tháng 6",
+                "Tháng 7", "Tháng 8", "Tháng 9", "Tháng 10", "Tháng 11", "Tháng 12"];
+            const tenThu = ["Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy"];
+
+            document.getElementById("nam").textContent = nam;
+            document.getElementById("thang").textContent = tenThang[ngayDuocChon.getMonth()];
+            document.getElementById("so-ngay").textContent = ngayDuocChon.getDate();
+            document.getElementById("thu").textContent = tenThu[ngayDuocChon.getDay()];
+
+            const gio = new Date().getHours();
+            let loiChao = "Chào buổi tối!";
+            if (gio < 12) {
+                loiChao = "Chào buổi sáng!";
+            } else if (gio < 18) {
+                loiChao = "Chào buổi chiều!";
+            }
+            document.getElementById("loi-chao").textContent = loiChao;
+            document.getElementById("thong-bao").textContent = "";
+        }
+        formLich.addEventListener("submit", function (suKien) {
+            suKien.preventDefault();
+            const ngay = Number(document.getElementById("ngay-nhap").value);
+            const thang = Number(document.getElementById("thang-nhap").value);
+            const nam = Number(document.getElementById("nam-nhap").value);
+            hienThiLich(ngay, thang, nam);
+        });
+        hienThiLich(24, 12, 2026);
+    </script>
+</body>
+</html>

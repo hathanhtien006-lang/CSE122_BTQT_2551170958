@@ -1,0 +1,183 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng ký tài khoản</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff7ed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .hop {
+            width: 100%;
+            max-width: 600px;
+            padding: 30px;
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px #ddd;
+        }
+
+        h1 {
+            color: #c2410c;
+        }
+
+        .truong {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            box-sizing: border-box;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .dung {
+            border-color: green;
+        }
+
+        .sai {
+            border-color: red;
+            background-color: #fff2f2;
+        }
+
+        .thong-bao {
+            margin: 5px 0 0;
+            font-size: 14px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background-color: #c2410c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #9a3412;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="hop">
+        <h1>Đăng ký tài khoản</h1>
+        <p>Vui lòng nhập đầy đủ thông tin.</p>
+
+        <form id="form">
+            <div class="truong">
+                <label for="hoten">Họ và tên</label>
+                <input id="hoten" type="text">
+                <p class="thong-bao" id="bao1"></p>
+            </div>
+
+            <div class="truong">
+                <label for="email">Email</label>
+                <input id="email" type="text">
+                <p class="thong-bao" id="bao2"></p>
+            </div>
+
+            <div class="truong">
+                <label for="matkhau">Mật khẩu</label>
+                <input id="matkhau" type="password">
+                <p class="thong-bao" id="bao3"></p>
+            </div>
+
+            <div class="truong">
+                <label for="xacnhan">Xác nhận mật khẩu</label>
+                <input id="xacnhan" type="password">
+                <p class="thong-bao" id="bao4"></p>
+            </div>
+
+            <button type="submit">Đăng ký</button>
+            <p id="ketqua"></p>
+        </form>
+    </main>
+
+    <script>
+        const form = document.getElementById("form");
+        const hoten = document.getElementById("hoten");
+        const email = document.getElementById("email");
+        const matkhau = document.getElementById("matkhau");
+        const xacnhan = document.getElementById("xacnhan");
+
+        // Hàm kiểm tra và hiển thị thông báo
+        function kiemTra(o, bao, hopLe, loi) {
+            o.classList.remove("dung", "sai");
+
+            if (hopLe) {
+                o.classList.add("dung");
+                bao.style.color = "green";
+                bao.textContent = "✓ Hợp lệ";
+            } else {
+                o.classList.add("sai");
+                bao.style.color = "red";
+                bao.textContent = "✗ " + loi;
+            }
+
+            return hopLe;
+        }
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            let a = kiemTra(
+                hoten, bao1,
+                hoten.value.trim() !== "",
+                "Họ tên không được để trống"
+            );
+
+            let b = kiemTra(
+                email, bao2,
+                /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value),
+                "Email không hợp lệ"
+            );
+
+            let c = kiemTra(
+                matkhau, bao3,
+                matkhau.value.length >= 6,
+                "Mật khẩu cần ít nhất 6 ký tự"
+            );
+
+            let d = kiemTra(
+                xacnhan, bao4,
+                xacnhan.value !== "" &&
+                xacnhan.value === matkhau.value,
+                "Mật khẩu xác nhận chưa khớp"
+            );
+
+            if (a && b && c && d) {
+                ketqua.style.color = "green";
+                ketqua.textContent = "Đăng ký thành công! Thông tin hợp lệ.";
+            } else {
+                ketqua.style.color = "red";
+                ketqua.textContent = "Vui lòng kiểm tra lại thông tin.";
+            }
+        });
+    </script>
+</body>
+</html>
+

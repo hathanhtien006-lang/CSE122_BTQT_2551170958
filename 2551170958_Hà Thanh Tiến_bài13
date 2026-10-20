@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài 13 - Đồng hồ số</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            padding: 24px;
+            box-sizing: border-box;
+            background-color: #f1f1f1;
+            font-family: Arial, sans-serif;
+        }
+
+        .khung {
+            max-width: 1180px;
+            margin: 0 auto;
+        }
+
+        .dong-ho {
+            min-height: 190px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+            background-color: #000;
+            border-radius: 30px;
+        }
+
+        .chu-so {
+            width: 52px;
+            height: 52px;
+        }
+
+        .dau-hai-cham {
+            width: 24px;
+            height: 52px;
+            margin: 0 4px;
+        }
+
+        .loi-chao {
+            margin: 105px auto 0;
+            padding: 35px 20px;
+            background-color: #fff;
+            border-radius: 28px;
+            color: #c62828;
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(40px, 8vw, 90px);
+            text-align: center;
+        }
+
+        @media (max-width: 520px) {
+            body { padding: 12px; }
+            .dong-ho { min-height: 150px; gap: 2px; }
+            .chu-so { width: 36px; height: 40px; }
+            .dau-hai-cham { width: 18px; height: 40px; margin: 0; }
+            .loi-chao { margin-top: 70px; padding: 28px 12px; }
+        }
+    </style>
+</head>
+<body>
+    <main class="khung">
+        <section class="dong-ho" aria-label="Đồng hồ hiện tại">
+            <img class="chu-so" id="gio-chuc" src="Anh/Bai13/00.gif" alt="">
+            <img class="chu-so" id="gio-don-vi" src="Anh/Bai13/00.gif" alt="">
+            <img class="dau-hai-cham" src="Anh/Bai13/haicham.gif" alt=":">
+            <img class="chu-so" id="phut-chuc" src="Anh/Bai13/00.gif" alt="">
+            <img class="chu-so" id="phut-don-vi" src="Anh/Bai13/00.gif" alt="">
+            <img class="dau-hai-cham" src="Anh/Bai13/haicham.gif" alt=":">
+            <img class="chu-so" id="giay-chuc" src="Anh/Bai13/00.gif" alt="">
+            <img class="chu-so" id="giay-don-vi" src="Anh/Bai13/00.gif" alt="">
+        </section>
+
+        <p class="loi-chao" id="loi-chao"></p>
+    </main>
+
+    <script>
+        function hienThiDongHo() {
+            const bayGio = new Date();
+            const gio = bayGio.getHours();
+            const phut = bayGio.getMinutes();
+            const giay = bayGio.getSeconds();
+
+            // Chia mỗi số thành hàng chục và hàng đơn vị để chọn ảnh GIF.
+            document.getElementById("gio-chuc").src = "Anh/Bai13/0" + Math.floor(gio / 10) + ".gif";
+            document.getElementById("gio-don-vi").src = "Anh/Bai13/0" + (gio % 10) + ".gif";
+            document.getElementById("phut-chuc").src = "Anh/Bai13/0" + Math.floor(phut / 10) + ".gif";
+            document.getElementById("phut-don-vi").src = "Anh/Bai13/0" + (phut % 10) + ".gif";
+            document.getElementById("giay-chuc").src = "Anh/Bai13/0" + Math.floor(giay / 10) + ".gif";
+            document.getElementById("giay-don-vi").src = "Anh/Bai13/0" + (giay % 10) + ".gif";
+
+            let loiChao = "Chào buổi tối";
+            if (gio < 12) {
+                loiChao = "Chào buổi sáng";
+            } else if (gio < 18) {
+                loiChao = "Chào buổi chiều";
+            }
+            document.getElementById("loi-chao").textContent = loiChao;
+        }
+
+        // Cập nhật ngay khi mở trang rồi lặp lại sau mỗi giây.
+        hienThiDongHo();
+        setInterval(hienThiDongHo, 1000);
+    </script>
+</body>
+</html>
